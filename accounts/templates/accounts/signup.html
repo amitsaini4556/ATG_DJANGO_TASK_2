@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if error %}
+{% if error %}
+<h4 style="color:red">{{ error }}</h4>
+{% endif %}
+<br>
+<br>
+<br>
+{% endif %}
+{% load staticfiles %}
+<h1>Sign Up!!</h1>
+<form action="{% url 'signup' %}" method="post">
+  {% csrf_token %}
+  Username:
+    <br>
+  <input type="text" name="username">
+  <br>
+  Password:
+    <br>
+  <input type="password" name="password1">
+    <br>
+    Confirm Password:
+      <br>
+    <input type="password" name="password2">
+<br>
+
+<br>
+
+  What is {{ randomlist.0 }} {{ x }} {{ randomlist.1 }} ??
+  <input type="hidden"  name="randomlist0" value="{{ randomlist.0 }}">
+  <input type="hidden"  name="randomlist1" value="{{ randomlist.1 }}">
+  <input type="hidden"  name="op" value="{{ x }}">
+
+  <br>
+  <input type="text" name="captcha" placeholder="Captcha"/>
+  <br>
+  <br>
+<br>
+    <input class="btn btn-primary" type="submit" value="Sign Up!">
+</form>
+
+
+
+ {% endblock %}
