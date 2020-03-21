@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if error %}
+<h4 style="color:red">{{ error }}</h4>
+
+
+<br><br>
+{% endif %}
+<br>
+<br>
+<br>
+{% load staticfiles %}
+<h1>Create!!</h1>
+<form action="{% url 'create' %}" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+
+Image:
+<br>
+<input type="file" name="image">
+<br>
+Body:
+<br>
+<input type="textbox" name="body">
+<br>
+<br>
+<label for="mode" name="mode">Mode:</label>
+<select class="mode" name="mode">
+  <option value="">---------</option>
+  <option value="Public">Public</option>
+  <option value="Private">Private</option>
+
+</select>
+<br>
+<br>
+    <input class="btn btn-primary" type="submit" value="Add Artical">
+
+
+</form>
+
+
+{% endblock %}

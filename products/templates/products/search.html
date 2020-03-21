@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+{% for product in product.all %}
+
+<div class="row">
+  <div class="col-8">
+    <img src="{{ product.image.url }}" class="img-fluid" alt="">
+  <div class="row">
+    <div class="col-8">
+        <a>Hunter By {{ product.hunter }}</a>
+        </div>
+
+
+        </div>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-8">
+      <a> {{ product.body }}</a>
+      <h4>{{ product.post_mode }}</h4>
+    </div>
+  </div>
+{% endfor %}
+
+
+
+{% endblock %}

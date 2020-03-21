@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+<br>
+<br>
+<br>
+{% block content %}
+
+<form class="" action="{% url 'search' %}" method="post">
+  {% csrf_token %}
+
+Search userName:
+<br>
+  <input type="text" name="search" value="">
+  <br>
+  <br>
+    <input class="btn btn-primary" type="submit" value="search">
+  <br>
+</form>
+
+<br>
+{% for product in products.all %}
+
+<div class="row pb-3">
+
+  <div class="col-2" onclick="window.location='{% url 'detail' product.id %}';" style="cursor:pointer;">
+
+  <img src="{{ product.image.url }}" width="200" height="200" alt="">
+  </div>
+  <div class="col-1">
+
+  </div>
+  <div class="col-6" onclick="window.location={% url 'detail' product.id %};" style="cursor:pointer;">
+<h6>{{ product.body }}</h6>
+<br>
+<h4>{{ product.post_mode }}</h4>
+  </div>
+
+  </div>
+
+
+{% endfor %}
+
+
+
+<br>
+<br>
+<br>
+{% if error %}
+<h4 style="color:red ;text-align:center">{{ error }}</h4>
+{% endif %}
+{% endblock %}
